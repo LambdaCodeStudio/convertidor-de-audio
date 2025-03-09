@@ -1,0 +1,37 @@
+---
+import Layout from '../layouts/Layout.astro';
+import AudioConverter from '../components/AudioConverter';
+---
+
+<Layout title="Dashboard - Convertidor de Audio">
+  <main class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+    <div class="px-4 py-6 sm:px-0">
+      <div class="border-4 border-dashed border-gray-200 rounded-lg p-4">
+        <h1 class="text-2xl font-bold text-gray-900 mb-4">
+          Convertidor de Audio
+        </h1>
+        
+        <!-- Componente AudioConverter -->
+        <div class="mb-8">
+          <AudioConverter client:load />
+        </div>
+        
+        <!-- Sección de información adicional -->
+        <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="bg-white p-4 rounded-lg shadow">
+            <h3 class="text-lg font-medium text-gray-900">Formatos soportados</h3>
+            <p class="mt-1 text-gray-500">MP3, WAV, OGG, AAC y más</p>
+          </div>
+          <div class="bg-white p-4 rounded-lg shadow">
+            <h3 class="text-lg font-medium text-gray-900">Procesamiento local</h3>
+            <p class="mt-1 text-gray-500">Sin límites de tamaño ni carga en servidores</p>
+          </div>
+          <div class="bg-white p-4 rounded-lg shadow">
+            <h3 class="text-lg font-medium text-gray-900">Soporte técnico</h3>
+            <p class="mt-1 text-gray-500">¿Problemas? Contacta con nuestro equipo</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>
