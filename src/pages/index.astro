@@ -4,12 +4,17 @@ import AudioConverter from '../components/AudioConverter';
 ---
 
 <Layout title="Dashboard - Convertidor de Audio">
-  <main class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+  <main class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8 bg-theme-primary">
     <div class="px-4 py-6 sm:px-0">
-      <div class="border-4 border-dashed border-gray-200 rounded-lg p-4">
-        <h1 class="text-2xl font-bold text-gray-900 mb-4">
-          Convertidor de Audio
-        </h1>
+      <div class="border-4 border-dashed border-theme rounded-lg p-6 bg-theme-secondary transition-all duration-300">
+        <div class="text-center mb-6">
+          <h1 class="text-4xl font-bold text-theme-primary mb-2 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            🎵 Convertidor de Audio Profesional
+          </h1>
+          <p class="text-theme-secondary text-lg">
+            Convierte tus archivos de audio a cualquier formato de manera rápida y segura
+          </p>
+        </div>
         
         <!-- Componente AudioConverter -->
         <div class="mb-8">
@@ -17,21 +22,164 @@ import AudioConverter from '../components/AudioConverter';
         </div>
         
         <!-- Sección de información adicional -->
-        <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div class="bg-white p-4 rounded-lg shadow">
-            <h3 class="text-lg font-medium text-gray-900">Formatos soportados</h3>
-            <p class="mt-1 text-gray-500">MP3, WAV, OGG, AAC y más</p>
+        <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="bg-theme-primary p-6 rounded-xl shadow-theme border border-theme hover:shadow-lg transition-all duration-300 hover:scale-105">
+            <div class="text-center mb-4">
+              <div class="text-4xl mb-2">🎵</div>
+              <h3 class="text-lg font-semibold text-theme-primary">Formatos soportados</h3>
+            </div>
+            <p class="text-theme-secondary text-center">
+              MP3, WAV, OGG, FLAC, AAC y más formatos de audio
+            </p>
+            <div class="mt-4 flex flex-wrap justify-center gap-2">
+              <span class="text-xs bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded-full">MP3</span>
+              <span class="text-xs bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-2 py-1 rounded-full">WAV</span>
+              <span class="text-xs bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 px-2 py-1 rounded-full">OGG</span>
+              <span class="text-xs bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 px-2 py-1 rounded-full">FLAC</span>
+            </div>
           </div>
-          <div class="bg-white p-4 rounded-lg shadow">
-            <h3 class="text-lg font-medium text-gray-900">Procesamiento local</h3>
-            <p class="mt-1 text-gray-500">Sin límites de tamaño ni carga en servidores</p>
+          
+          <div class="bg-theme-primary p-6 rounded-xl shadow-theme border border-theme hover:shadow-lg transition-all duration-300 hover:scale-105">
+            <div class="text-center mb-4">
+              <div class="text-4xl mb-2">🔒</div>
+              <h3 class="text-lg font-semibold text-theme-primary">Procesamiento local</h3>
+            </div>
+            <p class="text-theme-secondary text-center">
+              Sin límites de tamaño ni carga en servidores. Tus archivos permanecen seguros
+            </p>
+            <div class="mt-4 text-center">
+              <div class="inline-flex items-center gap-1 text-xs text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-900/20 px-3 py-1 rounded-full">
+                <span>✅</span>
+                <span>100% Privado</span>
+              </div>
+            </div>
           </div>
-          <div class="bg-white p-4 rounded-lg shadow">
-            <h3 class="text-lg font-medium text-gray-900">Soporte técnico</h3>
-            <p class="mt-1 text-gray-500">¿Problemas? Contacta con nuestro equipo</p>
+          
+          <div class="bg-theme-primary p-6 rounded-xl shadow-theme border border-theme hover:shadow-lg transition-all duration-300 hover:scale-105">
+            <div class="text-center mb-4">
+              <div class="text-4xl mb-2">⚡</div>
+              <h3 class="text-lg font-semibold text-theme-primary">Alto rendimiento</h3>
+            </div>
+            <p class="text-theme-secondary text-center">
+              Procesamiento paralelo optimizado para tu dispositivo
+            </p>
+            <div class="mt-4 grid grid-cols-2 gap-2 text-center">
+              <div class="text-xs">
+                <div class="font-semibold text-blue-600 dark:text-blue-400">Multi-core</div>
+                <div class="text-theme-muted">Paralelismo</div>
+              </div>
+              <div class="text-xs">
+                <div class="font-semibold text-purple-600 dark:text-purple-400">Tiempo real</div>
+                <div class="text-theme-muted">Progreso</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Sección de características adicionales -->
+        <div class="mt-10 bg-theme-tertiary p-6 rounded-xl border border-theme">
+          <h3 class="text-xl font-bold text-theme-primary mb-4 text-center flex items-center justify-center gap-2">
+            🌟 Características principales
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="text-center p-4 bg-theme-primary rounded-lg border border-theme">
+              <div class="text-2xl mb-2">🌓</div>
+              <div class="font-semibold text-theme-primary text-sm">Modo oscuro/claro</div>
+              <div class="text-xs text-theme-muted mt-1">Interfaz adaptativa</div>
+            </div>
+            <div class="text-center p-4 bg-theme-primary rounded-lg border border-theme">
+              <div class="text-2xl mb-2">📊</div>
+              <div class="font-semibold text-theme-primary text-sm">Progreso detallado</div>
+              <div class="text-xs text-theme-muted mt-1">Seguimiento en tiempo real</div>
+            </div>
+            <div class="text-center p-4 bg-theme-primary rounded-lg border border-theme">
+              <div class="text-2xl mb-2">🎛️</div>
+              <div class="font-semibold text-theme-primary text-sm">Control avanzado</div>
+              <div class="text-xs text-theme-muted mt-1">Calidad personalizable</div>
+            </div>
+            <div class="text-center p-4 bg-theme-primary rounded-lg border border-theme">
+              <div class="text-2xl mb-2">📱</div>
+              <div class="font-semibold text-theme-primary text-sm">Responsive</div>
+              <div class="text-xs text-theme-muted mt-1">Todos los dispositivos</div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Call to action -->
+        <div class="mt-10 text-center">
+          <div class="bg-gradient-to-r from-blue-600 to-purple-600 p-6 rounded-xl text-white">
+            <h3 class="text-xl font-bold mb-2">¿Listo para convertir tus archivos?</h3>
+            <p class="text-blue-100 mb-4">Arrastra tus archivos de audio arriba y comienza la conversión instantánea</p>
+            <div class="flex flex-wrap justify-center gap-4 text-sm">
+              <div class="flex items-center gap-1">
+                <span>✅</span>
+                <span>Gratis</span>
+              </div>
+              <div class="flex items-center gap-1">
+                <span>✅</span>
+                <span>Sin registro</span>
+              </div>
+              <div class="flex items-center gap-1">
+                <span>✅</span>
+                <span>Sin límites</span>
+              </div>
+              <div class="flex items-center gap-1">
+                <span>✅</span>
+                <span>100% seguro</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </main>
 </Layout>
+
+<style>
+  /* Estilos adicionales específicos para esta página */
+  .bg-gradient-to-r {
+    background: linear-gradient(to right, var(--tw-gradient-stops));
+  }
+  
+  .from-blue-600 {
+    --tw-gradient-from: #2563eb;
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(37, 99, 235, 0));
+  }
+  
+  .to-purple-600 {
+    --tw-gradient-to: #9333ea;
+  }
+  
+  /* Efectos hover mejorados */
+  .hover\:scale-105:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Animaciones para los elementos */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out;
+  }
+</style>
+
+<script>
+  // Script para añadir animaciones cuando la página carga
+  document.addEventListener('DOMContentLoaded', () => {
+    const elements = document.querySelectorAll('.bg-theme-primary, .bg-theme-secondary');
+    elements.forEach((el, index) => {
+      setTimeout(() => {
+        el.classList.add('animate-fade-in');
+      }, index * 100);
+    });
+  });
+</script>

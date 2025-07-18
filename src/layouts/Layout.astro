@@ -10,8 +10,63 @@ import Footer from '../components/common/Footer'
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Convertidor de audio a .mp3</title>
+		
+		<!-- Script para manejar el tema global -->
+		<script is:inline>
+			// Función para aplicar el tema
+			function applyTheme(isDark) {
+				if (isDark) {
+					document.documentElement.classList.add('dark');
+					document.body.style.backgroundColor = '#111827';
+					document.body.style.color = '#f9fafb';
+				} else {
+					document.documentElement.classList.remove('dark');
+					document.body.style.backgroundColor = '#ffffff';
+					document.body.style.color = '#111827';
+				}
+			}
+
+			// Detectar tema inicial
+			function initTheme() {
+				const saved = localStorage.getItem('theme-preference');
+				const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+				const isDark = saved === 'dark' || (saved === null && prefersDark);
+				
+				applyTheme(isDark);
+				
+				// Guardar la preferencia inicial si no existe
+				if (!saved) {
+					localStorage.setItem('theme-preference', isDark ? 'dark' : 'light');
+				}
+			}
+
+			// Escuchar cambios en el localStorage (para sincronizar con React)
+			function setupThemeListener() {
+				window.addEventListener('storage', (e) => {
+					if (e.key === 'theme-preference') {
+						applyTheme(e.newValue === 'dark');
+					}
+				});
+				
+				// También escuchar eventos personalizados para comunicación interna
+				window.addEventListener('theme-change', (e) => {
+					applyTheme(e.detail.isDark);
+				});
+			}
+
+			// Inicializar cuando el DOM esté listo
+			if (document.readyState === 'loading') {
+				document.addEventListener('DOMContentLoaded', () => {
+					initTheme();
+					setupThemeListener();
+				});
+			} else {
+				initTheme();
+				setupThemeListener();
+			}
+		</script>
 	</head>
-	<body>
+	<body class="transition-colors duration-300">
 		<slot />
 		<Footer/>
 	</body>
@@ -23,5 +78,104 @@ import Footer from '../components/common/Footer'
 		margin: 0;
 		width: 100%;
 		height: 100%;
+		transition: background-color 0.3s ease, color 0.3s ease;
+	}
+
+	/* Estilos para modo claro (por defecto) */
+	body {
+		background-color: #ffffff;
+		color: #111827;
+	}
+
+	/* Estilos para modo oscuro */
+	:global(.dark) {
+		color-scheme: dark;
+	}
+
+	:global(.dark) body {
+		background-color: #111827;
+		color: #f9fafb;
+	}
+
+	/* Variables CSS para temas */
+	:root {
+		--bg-primary: #ffffff;
+		--bg-secondary: #f9fafb;
+		--bg-tertiary: #f3f4f6;
+		--text-primary: #111827;
+		--text-secondary: #6b7280;
+		--text-muted: #9ca3af;
+		--border-color: #d1d5db;
+		--shadow-color: rgba(0, 0, 0, 0.1);
+	}
+
+	:global(.dark) {
+		--bg-primary: #111827;
+		--bg-secondary: #1f2937;
+		--bg-tertiary: #374151;
+		--text-primary: #f9fafb;
+		--text-secondary: #d1d5db;
+		--text-muted: #9ca3af;
+		--border-color: #4b5563;
+		--shadow-color: rgba(0, 0, 0, 0.3);
+	}
+
+	/* Clases utilitarias para usar en los componentes */
+	:global(.bg-theme-primary) {
+		background-color: var(--bg-primary);
+	}
+
+	:global(.bg-theme-secondary) {
+		background-color: var(--bg-secondary);
+	}
+
+	:global(.bg-theme-tertiary) {
+		background-color: var(--bg-tertiary);
+	}
+
+	:global(.text-theme-primary) {
+		color: var(--text-primary);
+	}
+
+	:global(.text-theme-secondary) {
+		color: var(--text-secondary);
+	}
+
+	:global(.text-theme-muted) {
+		color: var(--text-muted);
+	}
+
+	:global(.border-theme) {
+		border-color: var(--border-color);
+	}
+
+	:global(.shadow-theme) {
+		box-shadow: 0 1px 3px 0 var(--shadow-color), 0 1px 2px 0 var(--shadow-color);
+	}
+
+	/* Estilos para elementos específicos en modo oscuro */
+	:global(.dark .bg-white) {
+		background-color: var(--bg-secondary) !important;
+	}
+
+	:global(.dark .text-gray-900) {
+		color: var(--text-primary) !important;
+	}
+
+	:global(.dark .text-gray-500) {
+		color: var(--text-secondary) !important;
+	}
+
+	:global(.dark .border-gray-200) {
+		border-color: var(--border-color) !important;
+	}
+
+	:global(.dark .shadow) {
+		box-shadow: 0 1px 3px 0 var(--shadow-color), 0 1px 2px 0 var(--shadow-color) !important;
+	}
+
+	/* Transiciones suaves para todos los elementos */
+	:global(*) {
+		transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 	}
 </style>

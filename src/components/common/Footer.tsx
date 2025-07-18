@@ -7,7 +7,7 @@ export const Footer: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center">   
           <a 
-            href="https://portfolio-lambdacodestudios-projects.vercel.app" 
+            href="https://lambdacodestudio.com.ar" 
             target="_blank" 
             rel="noopener noreferrer"
             className="flex items-center text-[#D4F5E6] hover:text-white transition-colors duration-300 group"
