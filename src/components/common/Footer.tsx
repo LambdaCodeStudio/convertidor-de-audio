@@ -3,7 +3,7 @@ import { ExternalLink } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-gradient-to-r from-[#00888A] to-[#50C3AD] py-4 shadow-lg relative z-10">
+    <footer className="bg-gradient-to-r from-[#5247ee] to-[#6818e9] py-4 shadow-lg relative z-10">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center">   
           <a 
